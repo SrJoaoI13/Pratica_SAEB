@@ -23,10 +23,26 @@ function Produtos() {
   });
   const navigate = useNavigate();
 
+  const bubbleSort = (arr) => {
+    const n = arr.length;
+    const sorted = [...arr];
+    for (let i = 0; i < n - 1; i++) {
+      for (let j = 0; j < n - i - 1; j++) {
+        if (sorted[j].nome.localeCompare(sorted[j + 1].nome, 'pt-BR', { sensitivity: 'base' }) > 0) {
+          const temp = sorted[j];
+          sorted[j] = sorted[j + 1];
+          sorted[j + 1] = temp;
+        }
+      }
+    }
+    return sorted;
+  };
+
   const loadProdutos = async () => {
     try {
       const response = await api.get('/produtos');
-      setProdutos(response.data);
+      const sortedProdutos = bubbleSort(response.data);
+      setProdutos(sortedProdutos);
     } catch (err) {
       console.error(err);
     }
@@ -39,7 +55,8 @@ function Produtos() {
   const handleSearch = async () => {
     try {
       const response = await api.get('/produtos/search', { params: { termo: search } });
-      setProdutos(response.data);
+      const sortedProdutos = bubbleSort(response.data);
+      setProdutos(sortedProdutos);
     } catch (err) {
       console.error(err);
     }

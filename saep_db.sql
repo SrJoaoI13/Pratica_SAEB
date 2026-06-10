@@ -31,10 +31,12 @@ CREATE TABLE movimentacao (
     data_movimentacao DATE NOT NULL,
 
     FOREIGN KEY(id_produto)
-        REFERENCES produto(id_produto),
+        REFERENCES produto(id_produto)
+        ON DELETE CASCADE,
 
     FOREIGN KEY(id_usuario)
         REFERENCES usuario(id_usuario)
+        ON DELETE CASCADE
 );
 
 INSERT INTO usuario
@@ -49,7 +51,8 @@ INSERT INTO produto
 VALUES
 ('M001','Martelo','Ferramenta','Martelo aço',15,5,'UN',0.80,'2024-08-01'),
 ('A001','Alicate','Ferramenta','Alicate universal',20,5,'UN',0.40,'2024-08-01'),
-('C001','Chave Fenda','Ferramenta','Chave fenda média',8,3,'UN',0.20,'2024-08-01');
+('C001','Chave Fenda','Ferramenta','Chave fenda média',8,3,'UN',0.20,'2024-08-01'),
+('T001','Trena','Ferramenta','Trena de 5 metros',12,4,'UN',0.30,'2024-08-01');
 
 INSERT INTO movimentacao
 (id_produto,id_usuario,tipo,quantidade,data_movimentacao)

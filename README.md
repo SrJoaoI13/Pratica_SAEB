@@ -77,17 +77,16 @@ Pratica_SAEB/
 │           │   └── resources/
 │           │       └── application.properties
 │           └── pom.xml
-├── FrontEnd/
+├── Sistemas/
 │   └── saep-estoque/
 │       ├── src/
 │       │   ├── pages/
 │       │   ├── services/
-│       │   ├── context/
+│       │   ├── contexts/
 │       │   ├── App.jsx
 │       │   └── main.jsx
 │       └── package.json
 ├── saep_db.sql
-├── update-fk.sql
 └── README.md
 ```
 
@@ -99,7 +98,6 @@ Pratica_SAEB/
 1. Abra o MySQL Workbench
 2. Conecte-se ao seu servidor MySQL
 3. Execute o script `saep_db.sql` para criar o banco e popular os dados
-4. Execute o script `update-fk.sql` para configurar a exclusão em cascata
 
 #### 2. Backend (Spring Boot)
 1. Acesse a pasta `BackEnd/Java`
@@ -112,7 +110,7 @@ Pratica_SAEB/
 4. O backend estará disponível em `http://localhost:8080`
 
 #### 3. Frontend (React)
-1. Acesse a pasta `FrontEnd/saep-estoque`
+1. Acesse a pasta `Sistemas/saep-estoque`
 2. Instale as dependências: `npm install`
 3. Execute o frontend: `npm run dev`
 4. Acesse o sistema no navegador (o Vite mostrará o link, ex: `http://localhost:5173`)
